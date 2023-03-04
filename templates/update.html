@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<form method="post" align="center">
+    <th>今日の勉強時間:<input type="text" name="achieve" required></th>
+    <input type="submit" name="submit" onclick="location.href={{ url }}" value="追加">
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+body {
+    margin-top: 0px;
+    padding: 0px;
+    background-color: rgb(179, 224, 253);
+}
+
+.modifier input {
+    margin-top: 100px;
+    margin-right: 50px;
+}
+
+.addButton input {
+    margin-top: 50px;
+}

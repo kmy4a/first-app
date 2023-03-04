@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block header %}
+<title>StudyManager</title>
+{% endblock %}
+
+{% block body %}
+<form method="post">
+    <table align="center" border="0">
+        <tr>
+            <th>試験名:<input type="text" name="examName" required></th>
+        </tr>
+        <tr>
+            <th>試験日:<input type="date" name="examDate" required></th>
+        </tr>
+    </table>
+    <div align="center" class="addButton">
+        <input type="submit" name="submit" onclick="location.href='/add/'" value="追加">
+    </div>
+</form>
+{% endblock%}

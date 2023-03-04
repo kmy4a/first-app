@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block header %}
+<title>資格管理</title>
+{% endblock %}
+
+{% block body %}
+<div class="header">
+    <h1 align="center">資格管理</h1>
+</div>
+
+<div class="body">
+    <table align="center" border="1">
+        <tr>
+            <th>ID</th>
+            <th>資格名</th>
+            <th>受験予定日</th>
+            <th>残り日数</th>
+            <th>実績時間</th>
+            <th>試験結果</th>
+            <th>編集</th>
+            <th>結果入力</th>
+            <th></th>
+        </tr>
+        {% for exam in exams %}
+        <tr>
+            <th>{{ exam.id }}</th>
+            <th>{{ exam.name }}</th>
+            <th>{{ exam.date }}</th>
+            <th>{{ exam.remain }}</th>
+            <th>{{ exam.amount }}</th>
+            <th>
+                {% if exam.result == None %}
+                未受験
+                {% elif exam.result == True %}
+                合格
+                {% elif exam.result == False %}
+                不合格
+                {% else %}
+                ERROR
+                {% endif %}
+            </th>
+            <th><a class="btn btn-primary" href="/update/{{ exam.id }}">実績追加</a></th>
+            <th><a class="btn btn-primary" href="/result/{{ exam.id }}">結果入力</a></th>
+            <th><a class="btn btn-danger" href="/delete/{{ exam.id }}">削除</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+    <div align="center" class="modifier">
+        <input class="create-btn" type="button" name="create" onclick="location.href='/add/'" value="新規登録">
+    </div>
+
+</div>
+
+<div class="footer">
+</div>
+{% endblock %}
